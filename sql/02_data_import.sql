@@ -27,7 +27,7 @@ DELIMITER ',' CSV HEADER ENCODING 'UTF8';
 
 -- 6. Sellers
 COPY sellers (seller_id, seller_zip_code_prefix, seller_city, seller_state)
-FROM 'C:C:\Users\Public\Brazilian E Commerce Public Dataset by Olist\olist_sellers_dataset.csv'
+FROM 'C:\Users\Public\Brazilian E Commerce Public Dataset by Olist\olist_sellers_dataset.csv'
 DELIMITER ',' CSV HEADER ENCODING 'UTF8';
 
 -- 7. Product Category Name Translation

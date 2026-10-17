@@ -1,4 +1,7 @@
--- 02: CSV Data Import (Source Kaggle)
+-- =====================================================================
+-- Script 2: CSV Data Import (Source: Kaggle Olist Dataset)
+-- Description: Loads CSV files into PostgreSQL tables using the COPY command.
+-- =====================================================================
 
 -- 1. Customers
 COPY customers (customer_id, customer_unique_id, customer_zip_code_prefix, customer_city, customer_state)
@@ -22,7 +25,7 @@ DELIMITER ',' CSV HEADER ENCODING 'UTF8';
 
 -- 5. Products
 COPY products (product_id, product_category_name, product_name_lenght, product_description_lenght, product_photos_qty, product_weight_g, product_length_cm, product_height_cm, product_width_cm)
-FROM 'C:\Users\Public\Brazilian E Commerce Public Dataset by Olist\/olist_products_dataset.csv'
+FROM 'C:\Users\Public\Brazilian E Commerce Public Dataset by Olist\olist_products_dataset.csv'
 DELIMITER ',' CSV HEADER ENCODING 'UTF8';
 
 -- 6. Sellers
@@ -30,7 +33,12 @@ COPY sellers (seller_id, seller_zip_code_prefix, seller_city, seller_state)
 FROM 'C:\Users\Public\Brazilian E Commerce Public Dataset by Olist\olist_sellers_dataset.csv'
 DELIMITER ',' CSV HEADER ENCODING 'UTF8';
 
--- 7. Product Category Name Translation
+-- 7. Order Reviews
+COPY order_reviews (review_id, order_id, review_score, review_comment_title, review_comment_message, review_creation_date, review_answer_timestamp)
+FROM 'C:\Users\Public\Brazilian E Commerce Public Dataset by Olist\olist_order_reviews_dataset.csv'
+DELIMITER ',' CSV HEADER ENCODING 'UTF8';
+
+-- 8. Product Category Name Translation
 COPY product_category_name_translation (product_category_name, product_category_name_english)
 FROM 'C:\Users\Public\Brazilian E Commerce Public Dataset by Olist\product_category_name_translation.csv'
 DELIMITER ',' CSV HEADER ENCODING 'UTF8';
@@ -42,4 +50,5 @@ UNION ALL SELECT 'order_items', COUNT(*) FROM order_items
 UNION ALL SELECT 'order_payments', COUNT(*) FROM order_payments
 UNION ALL SELECT 'products', COUNT(*) FROM products
 UNION ALL SELECT 'sellers', COUNT(*) FROM sellers
+UNION ALL SELECT 'order_reviews', COUNT(*) FROM order_reviews
 UNION ALL SELECT 'product_category_name_translation', COUNT(*) FROM product_category_name_translation;

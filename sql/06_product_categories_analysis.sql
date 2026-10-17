@@ -7,7 +7,7 @@
 SELECT 
     p.product_category_name,
     COUNT(p.product_category_name) AS total_number_of_categories,
-    ROUND(SUM(oi.price), 2) AS total_sum_of_prices
+    ROUND(SUM(oi.price), 2) AS total_items_sold
 FROM order_items AS oi
 LEFT JOIN products AS p
     ON oi.product_id = p.product_id

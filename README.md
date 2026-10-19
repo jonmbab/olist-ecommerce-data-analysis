@@ -22,6 +22,14 @@ Analysis of over **100,000 orders** placed between 2016 and 2018 revealed crucia
 
 ---
 
+## 📊 Database Schema
+
+The following Entity-Relationship Diagram (ERD) illustrates the relational database structure, table primary/foreign key relationships, and data attributes across the Olist dataset:
+
+![Olist Database Schema](assets/HRhd2Y0.png)
+
+---
+
 ## 📂 Project Structure & Script Overview
 
 The repository is organized into modular `.sql` scripts representing the data pipeline from setup to advanced analytics:
